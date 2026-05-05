@@ -8,13 +8,19 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Enables smooth sliding when nav links are clicked */
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
+    overflow-x: hidden; /* Prevents tiny layout shifts */
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 .container {
@@ -23,7 +29,6 @@ body {
     padding: 0 2rem;
 }
 
-/* Common section spacing */
 section {
     padding: 4rem 0;
 }
@@ -44,7 +49,7 @@ section {
 .section-title hr {
     width: 80px;
     height: 4px;
-    background: #f39c12; /* Brand Accent Color */
+    background: #f39c12;
     border: none;
     margin: 10px auto;
 }
@@ -53,7 +58,6 @@ section {
     background: #f4f4f4;
 }
 
-/* Primary Button Styles */
 .btn {
     display: inline-block;
     background: #f39c12;
@@ -61,12 +65,14 @@ section {
     padding: 0.8rem 2rem;
     border-radius: 5px;
     text-decoration: none;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
     cursor: pointer;
+    border: none;
 }
 
 .btn:hover {
     background: #e67e22;
+    transform: translateY(-2px);
 }
 
 /* =========================================
@@ -79,12 +85,20 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Logo and Socials Group */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .logo {
@@ -96,6 +110,25 @@ nav {
     color: #f39c12;
 }
 
+.nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-socials a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+    display: flex;
+}
+
+.nav-socials a:hover {
+    color: #f39c12;
+}
+
+/* Nav Links */
 nav ul {
     display: flex;
     list-style: none;
@@ -106,6 +139,7 @@ nav ul li a {
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: color 0.3s;
+    font-weight: 400;
 }
 
 nav ul li a:hover {
@@ -113,10 +147,9 @@ nav ul li a:hover {
 }
 
 /* =========================================
-   Hero Section (Main Banner)
+   Hero Section
    ========================================= */
 .hero {
-    /* Gradient overlay + Local collage background */
     background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
                 url('assets/bg.png') no-repeat center center/cover;
     height: 80vh;
@@ -125,7 +158,7 @@ nav ul li a:hover {
     justify-content: center;
     text-align: center;
     color: #fff;
-    background-attachment: fixed; /* Creates parallax-like effect on scroll */
+    background-attachment: fixed;
 }
 
 .hero-content {
@@ -133,17 +166,13 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem; /* Ensures equal spacing between title, text, and button */
-}
-
-/* Resetting margins to allow flex-gap to handle the spacing */
-.hero h1, .hero p {
-    margin-bottom: 0;
+    gap: 2.5rem;
 }
 
 .hero h1 {
     font-size: 4rem;
     text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
 }
 
 .hero p {
@@ -152,31 +181,45 @@ nav ul li a:hover {
 }
 
 /* =========================================
-   About & Services Sections
+   About & Services
    ========================================= */
+#about {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
 .about-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-/* Services 2x2 Layout */
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
 .service-card {
     background: #fff;
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
 }
 
 /* =========================================
-   Portfolio Grid (3 Columns)
+   Portfolio Grid
    ========================================= */
 .portfolio-grid {
     display: grid;
@@ -195,8 +238,12 @@ nav ul li a:hover {
 .portfolio-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Forces images to fill boxes without stretching */
-    transition: transform 0.4s ease;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
 }
 
 /* =========================================
@@ -205,18 +252,33 @@ nav ul li a:hover {
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input, 
+.contact-form textarea {
     width: 100%;
-    padding: 0.8rem;
+    padding: 1rem;
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
 }
 
-/* Link coloring for contact info */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #f39c12;
+}
+
+.contact-info h3 {
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+}
+
 .contact-info a {
     color: inherit;
     text-decoration: none;
@@ -225,52 +287,57 @@ nav ul li a:hover {
 
 .contact-info a:hover {
     color: #f39c12;
-    text-decoration: underline;
 }
 
 footer {
     background: #2c3e50;
     color: #fff;
     text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
 }
 
 /* =========================================
    Responsive Media Queries
    ========================================= */
 
-/* Tablets */
 @media (max-width: 900px) {
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .hero h1 {
+        font-size: 3rem;
+    }
 }
 
-/* General Mobile (Handheld) */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .logo-container {
+        flex-direction: column;
+        gap: 10px;
     }
 
     nav ul {
-        margin-top: 1rem;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .hero {
-        background-attachment: scroll; /* Disables fixed bg for performance */
-        height: 60vh;
+        background-attachment: scroll;
+        height: 70vh;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
+    .services-grid, 
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
 }
 
-/* Small Phones */
 @media (max-width: 600px) {
     .portfolio-grid {
         grid-template-columns: 1fr;
@@ -278,5 +345,9 @@ footer {
 
     .portfolio-item {
         height: 250px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
     }
 }

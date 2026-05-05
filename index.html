@@ -6,22 +6,34 @@
     <title>HandyMan6000</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/wrenches.png">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <nav class="container">
+    <nav class="container">
+        <div class="logo-container">
             <div class="logo">HandyMan<span>6000</span></div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+            <div class="nav-socials">
+                <a href="https://facebook.com/handyman6000" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/handyman6000nc" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
     <section id="home" class="hero">
         <div class="container hero-content">
@@ -76,27 +88,21 @@
     <div class="portfolio-grid">
         <div class="portfolio-item">
             <img src="assets/portfolio/1.png">
-            <div class="overlay"><span>View Details</span></div>
         </div>
         <div class="portfolio-item">
             <img src="assets/portfolio/2.png">
-            <div class="overlay"><span>View Details</span></div>
         </div>
         <div class="portfolio-item">
             <img src="assets/portfolio/3.png">
-            <div class="overlay"><span>View Details</span></div>
         </div>
         <div class="portfolio-item">
             <img src="assets/portfolio/4.png">
-            <div class="overlay"><span>View Details</span></div>
         </div>
         <div class="portfolio-item">
             <img src="assets/portfolio/5.png">
-            <div class="overlay"><span>View Details</span></div>
         </div>
         <div class="portfolio-item">
             <img src="assets/portfolio/6.png">
-            <div class="overlay"><span>View Details</span></div>
         </div>
     </div>
 </section>
@@ -108,17 +114,21 @@
                 <hr>
             </div>
             <div class="contact-wrapper">
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Tell us about your project..." rows="5" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+                <form action="https://formspree.io/f/mleokwgk" method="POST" id="contact-form" class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+                    
+                    <button type="submit" id="submit-btn" class="btn">Send Message</button>
+                    
+                    <p id="form-status"></p>
                 </form>
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
                     <p><strong>Phone:</strong> <a href="tel:9198105314">(919) 810-5314</a></p>
                     <p><strong>Email:</strong> <a href="mailto:ryanharris6000@gmail.com">ryanharris6000@gmail.com</a></p>
                     <p><strong>Instagram:</strong> <a href="https://www.instagram.com/handyman6000nc/" target="_blank" rel="noopener noreferrer">@handyman6000nc</a></p>
+                    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/handyman6000" target="_blank" rel="noopener noreferrer">handyman6000</a></p>
                 </div>
             </div>
         </div>
@@ -128,5 +138,6 @@
         <p>&copy; 2026 HandyMan6000. All Rights Reserved.</p>
     </footer>
 
+    <script src="form.js"></script>
 </body>
 </html>
