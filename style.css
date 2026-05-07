@@ -79,8 +79,8 @@ section {
    Navigation Header
    ========================================= */
 header {
-    background: #2c3e50;
-    color: #fff;
+    background: #fff;
+    color: #12130F;
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -104,10 +104,20 @@ nav {
 .logo {
     font-size: 1.8rem;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Adjust the spacing between the logo and text */
+    text-decoration: none;
 }
 
 .logo span {
     color: #f39c12;
+}
+
+.logo-img {
+    height: 40px; /* Adjust this to fit your header height */
+    width: auto;  /* Maintains the rectangular aspect ratio */
+    display: block;
 }
 
 .nav-socials {
@@ -117,7 +127,7 @@ nav {
 }
 
 .nav-socials a {
-    color: #fff;
+    color: #12130F;
     text-decoration: none;
     font-size: 1.3rem;
     transition: color 0.3s ease;
@@ -135,7 +145,7 @@ nav ul {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #12130F;
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: color 0.3s;
@@ -221,6 +231,11 @@ nav ul li a:hover {
 /* =========================================
    Portfolio Grid
    ========================================= */
+
+#portfolio {
+    padding: 3rem;
+}
+
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
